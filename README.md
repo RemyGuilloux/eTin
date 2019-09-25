@@ -1,34 +1,62 @@
 <img src="https://image.flaticon.com/icons/svg/411/411815.svg" title="Logo" alt="Logo" align="right" width="180">
 
-# What is eTin?
+# What is eTin? 🐷
 
 You wish to work in a more **quiet** and **peaceful** place where **swearing** out loud is a faraway memory? **eTin** will help you turn those _nasty habits_ on **occasion** to **contribute to actions you care about**! With your team, agree on the amount you will have to pay for each swears you'll dare to pronounce, and choose the association you want to support! 
 
-## How does it work? 
+More info * [here](https://github.com/louiiuol/eTin/wiki) !
 
-Every user can create their _Tinees_*, and invite his team to participate. There is _no limit_ on the number of participants. The owner of the _Tinee_ can manage _roles_ for each member, giving them availability to also manage, in part, the _Tinee_. 
+## Built With 🚀
 
->*_Tinee represents collect to fund actions, associations. It starts when all members vote ready for it, after agreed on the amount for swearings, the finishing date and/or the maximum amount,  and the associations they want to support_. 
+* [Maven](https://maven.apache.org/) - Dependency Management
+* [Spring](https://spring.io/) - Java Framework
+* [Angular X](https://angular.io/docs) - JS Framework
+* [Bulma](https://bulma.io/documentation/) - CSS Framework
+* [JPA Hibernate](https://hibernate.org/orm/documentation/5.4/) - Database persistence
 
-Once the Tinee has **started**, every time someone's _swearing out loud_, he will have to **declare it** in the app. Someone else could also declare it but he will need to _justify with a quote_. 
-The Tinee will _keep in memory_ all swearings pronounce by the team, and do the math to resume **who owes what**!
-When the _time is up_ or the maximal amount is _exceeded_, members will be invited to **participate in the raising** with Lydia. 
- 
-# General Informations
 
-This application was made in order to pass RNCP Title (Application's Conceptor and developer) based on Java and Javascript Languages. You can find the Full Stack of this project below. 
+## Getting Started 💪
 
-This wiki also provides some extra information on the conceptual work did before: MCD|MPD|UML  / Graphical chart ...
+> These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
-***
+### Prerequisites 📚
 
-## Stack 
+```bash
+#!/bin/bash
+Maven
+SQL Workbench (or equivalent)
+IDEA configured with Springboot helps
+JDK 1.8 (min)
+Your favorite internet browser
+```
 
-* **MODELS**: Adobe XD
-* **WEB**: Angular X / Bulma
-* **API**: Java Spring Boot Security
-* **PERSISTENCE**: JPA Hibernate
-* **DATABASE**: SQL
-* **TESTS JAVA**: JUnit 
-* **TESTS JAVA**: JEST
+### Installing 🛠
+
+```bash
+#!/bin/bash
+cd ./yourWorkspace/
+git cone https://github.com/louiiuol/codOctopus.git
+cd eTin/api
+mvn update
+mvn spring-boot:run
+
+cd eTin/web
+npm install
+npm start
+
+```
+
+## Contributing 🙌
+
+> Before contributing to project, please check the following:
+> * [HowToGit.md](https://gist.github.com/louiiuol/2697f8217853689fef9173e4eaad5386#versioning-how-to-git) (git commands) <br>
+> * [CONTRIBUTING.md](https://gist.github.com/louiiuol/f1ca9436c877c85f39f20e683ed64156) (code of conduct,  pull requests process)
+
+## Authors 🖊
+
+> * **Louis Godlewski**  - [louiiuol](https://github.com/louiiuol)
+
+## License 💼
+
+> This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
