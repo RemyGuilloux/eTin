@@ -1,0 +1,54 @@
+<div *ngIf="isLoggedIn; else loggedOut">
+  Logged in as {{roles}}.
+</div>
+
+<ng-template #loggedOut>
+      <div class="card-header has-background-primary">
+        <h1 class="card-header-title title has-text-centered has-text-light">Log In</h1>
+      </div>
+      <div class="card-content">
+        <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+          <div class="field">
+            <p class="control has-icons-left has-icons-right">
+              <input class="input" type="text" placeholder="Username" name="username" [(ngModel)]="form.username" #username="ngModel" required>
+              <span class="icon is-small is-left">
+                <i class="fas fa-user"></i>
+              </span>
+              <span class="icon is-small is-right">
+                <i *ngIf="f.submitted && !username.invalid" class="fas fa-check"></i>
+                <i *ngIf="f.submitted && username.invalid" class="fas fa-times"></i>
+              </span>
+            </p>
+            <div *ngIf="f.submitted && username.invalid">
+              <span *ngIf="username.errors.required">Username is required</span>
+            </div>
+          </div>
+          <div class="field">
+            <p class="control has-icons-left has-icons-right">
+              <input class="input" type="password" placeholder="Password" name="password" [(ngModel)]="form.password" #password="ngModel" required minlength="6" >
+              <span class="icon is-small is-left">
+                <i class="fas fa-lock"></i>
+              </span>
+              <span class="icon is-small is-right">
+                  <i *ngIf="f.submitted && !password.invalid" class="fas fa-check"></i>
+                  <i *ngIf="f.submitted && password.invalid" class="fas fa-times"></i>
+                </span>
+            </p>
+            <div *ngIf="f.submitted && password.invalid">
+                <span *ngIf="password.errors.required">Password is required</span>
+                <span *ngIf="password.errors.minlength">Password must be at least 6 characters</span>
+            </div>
+          </div>
+          <div class="field">
+              <p class="control">
+                  <button class="button">Forgot password ?</button>
+                  <button class="button is-primary is-pulled-right">Login</button>
+              </p>
+              
+              <span *ngIf="f.submitted && isLoginFailed" class="">
+                  Login failed: {{errorMessage}}
+              </span>
+          </div>
+          </form>
+      </div>
+</ng-template>

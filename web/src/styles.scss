@@ -1,0 +1,11 @@
+@import "initial-variables";
+@import "functions";
+
+$primary: $purple;
+
+@import "bulma";
+
+* {
+    margin: 0;
+    padding: 0;
+}

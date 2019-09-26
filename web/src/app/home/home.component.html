@@ -1,0 +1,40 @@
+<div *ngIf="info.token; else loggedOut">
+  <section class="container is-fluid">
+    <h5 class="text-primary">Your Information</h5>
+    <p>
+      <strong>Username:</strong> {{info.username}}<br/>
+      <strong>Roles:</strong> {{info.authorities}}<br />
+      <strong>Token:</strong> {{info.token}}.
+    </p>
+    <button (click)="logout()">Log Out</button>
+  </section>
+</div>
+
+<ng-template #loggedOut>
+  <div  class="columns is-centered is-fullheight">
+    <div id="presentation" class="column is-8 is-desktop">
+        <section class="hero is-medium is-primary is-bold">
+          <div class="hero-body">
+            <div class="container">
+              <h1 class="title">
+                Primary bold title
+              </h1>
+              <h2 class="subtitle">
+                Primary bold subtitle
+              </h2>
+              <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatum similique deleniti earum recusandae assumenda velit omnis ratione nobis natus beatae, unde eos temporibus sint esse dolore. Quibusdam modi blanditiis dolore?</p>
+            </div>
+          </div>
+        </section>
+    </div>
+    <div id="form" class="column is-vertical has-background-danger">
+      <div class="card">
+        <app-login *ngIf="!isRegisterForm"></app-login>
+        <app-register *ngIf="isRegisterForm"></app-register>
+      </div>
+      <hr>
+      <a (click)='toggleFormView()'class="has-text-centered" *ngIf="!isRegisterForm">Doesn't have an account ? </a>
+      <a (click)='toggleFormView()'class="has-text-centered" *ngIf="isRegisterForm">Already have an account ? </a>
+    </div>
+  </div>
+</ng-template>
