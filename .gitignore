@@ -135,6 +135,7 @@ Temporary Items
 .nfs*
 
 ###  GRAPHICS ###
+@SRC/
 *.psd
 *.ai
 *.eps
