@@ -36,7 +36,6 @@ bower_components
 .sts4-cache
 mvnw
 target/
-resources/
 bin/
 .mvn/
 mvnw.cmd
