@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Component;
 
-import dev.louiiuol.etin.security.services.UserPrinciple;
+import dev.louiiuol.etin.security.UserPrinciple;
 
 import java.util.Date;
 

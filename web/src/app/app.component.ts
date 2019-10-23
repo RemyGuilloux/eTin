@@ -1,5 +1,4 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { StatesService } from './services/states/states.service';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -8,26 +7,6 @@ import { StatesService } from './services/states/states.service';
 })
 export class AppComponent {
 
-  constructor(private states: StatesService) {
+  constructor() {}
 
-  }
-  title = 'web';
-  showModal: boolean = false;
-
-  @Input()
-  username = '';
-
-  @Output() transfert = new EventEmitter();
-
-  selectedItem(username) {
-    this.showModal = false; // hide modal
-    if (username) {
-      this.username = username;
-    }
-    console.log("HOME"+username)
-    this.transfert.emit(this.username);
-  }
-   openModal() {
-      this.showModal = true;
-   }
 }

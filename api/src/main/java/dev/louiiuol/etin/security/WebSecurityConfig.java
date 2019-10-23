@@ -16,8 +16,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 import dev.louiiuol.etin.security.jwt.JwtAuthEntryPoint;
 import dev.louiiuol.etin.security.jwt.JwtAuthTokenFilter;
-import dev.louiiuol.etin.security.services.UserDetailsServiceImpl;
-
+import dev.louiiuol.etin.services.impl.UserDetailsServiceImpl;
 
 
 @Configuration
@@ -59,7 +58,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.cors().and().csrf().disable().
                 authorizeRequests()
-                .antMatchers("/api/auth/**").permitAll()
+                .antMatchers("/auth/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()

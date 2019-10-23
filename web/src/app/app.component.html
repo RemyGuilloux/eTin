@@ -1,10 +1,12 @@
 <main>
-  <app-navbar [username]="username" ></app-navbar>
+  <app-navbar ></app-navbar>
   <section class="section">
+  <app-notification></app-notification>
     <div class="container is-widescreen is-mobile is-fluid">
       <router-outlet></router-outlet>
     </div>
   </section>
+  <!-- <app-footer></app-footer> -->
 </main>
-<app-footer></app-footer>
-<app-modal [username]="username" (onClose)="selectedItem($event)" *ngIf="showModal"  ></app-modal>
+
+
