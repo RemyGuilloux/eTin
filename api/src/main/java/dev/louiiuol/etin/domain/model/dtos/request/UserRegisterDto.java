@@ -8,8 +8,6 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
-import org.springframework.lang.NonNull;
-
 public class UserRegisterDto {
 
     private String firstName;
@@ -114,5 +112,6 @@ public class UserRegisterDto {
     public LocalDateTime getSubscriptionDate() {
         return subscriptionDate;
     }
+
     
 }

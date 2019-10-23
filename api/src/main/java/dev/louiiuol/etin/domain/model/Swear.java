@@ -17,7 +17,7 @@ public class Swear {
     private Long id; 
 
     @Column(nullable = false)
-    private String swear; 
+    private String name; 
 
     @Column(nullable = false)
     private Integer multiplier; 

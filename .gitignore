@@ -25,6 +25,7 @@ bower_components
 .grunt
 .npm
 *.log
+package-lock.json
 
 ### Spring ###
 .apt_generated
@@ -49,11 +50,12 @@ mvnw.cmd
 /build/
 
 ### VS Code ###
-.vscode/*
+.vscode/
 !.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+*.code-workspace
 
 ### Eclipse ### .metadata
 bin/
@@ -138,4 +140,4 @@ Temporary Items
 *.psd
 *.ai
 *.eps
-.vscode/
+

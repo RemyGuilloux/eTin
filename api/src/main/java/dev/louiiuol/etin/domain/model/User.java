@@ -19,9 +19,6 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
-import org.hibernate.annotations.NaturalId;
-
-
 @Entity
 @Table(name = "users")
 public class User{
@@ -30,18 +27,16 @@ public class User{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Size(min=3, max = 50)
+    @Column(length = 20)
     private String firstName;
 
-    @Size(min=3, max = 50)
+    @Column(length = 20)
     private String lastName;
 
-    @NaturalId
-    @Size(min=3, max = 50)
+    @Column(length = 20, nullable = false, unique=true)
     private String userName;
 
-    @Size(max = 50)
-    @Email
+    @Column(nullable = false, length = 100, unique=true)
     private String email;
 
     @Column(length=10)
@@ -50,7 +45,7 @@ public class User{
     @Column(length=100)
     private String avatar; 
 
-    @Column()
+    @Column
     private LocalDate birthDate;
 
     @Column(nullable = false, updatable = false)
@@ -72,6 +67,9 @@ public class User{
     	inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles = new HashSet<>();
 
+    /**
+     * Default empty no-args constructor.
+     */
     public User() {}
 
     public Long getId() {

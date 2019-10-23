@@ -14,9 +14,9 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+import dev.louiiuol.etin.api.services.impl.UserDetailsServiceImpl;
 import dev.louiiuol.etin.security.jwt.JwtAuthEntryPoint;
 import dev.louiiuol.etin.security.jwt.JwtAuthTokenFilter;
-import dev.louiiuol.etin.services.impl.UserDetailsServiceImpl;
 
 
 @Configuration

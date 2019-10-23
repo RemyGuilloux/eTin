@@ -5,20 +5,59 @@ import org.modelmapper.config.Configuration.AccessLevel;
 import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
+import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 
+/**
+ * Main application class providing spring boot main method and configuration
+ * elements.
+ * <p>
+ * 
+ */
 @SpringBootApplication
 public class EtinApplication {
 
+	/**
+	 * Main method running the entire application.
+	 * 
+	 * @param args optional arguments.
+	 */
 	public static void main(String[] args) {
 		System.out.println("Application STARTING");
 		SpringApplication.run(EtinApplication.class, args);
 	}
 
+	/**
+	 * Default {@code LocalValidatorFactoryBean} to ease messages and tests.
+	 * <p>
+	 * <ul>
+	 * <li>Tell Spring to use the application {@code messages.properties}.</li>
+	 * <li>Give convenient validator bean to test DTO validation annotations.</li>
+	 *
+	 * @param messageSource a message source strategy
+	 * @return a validator factory
+	 */
 	@Bean
-    public ModelMapper mapper() {
-		ModelMapper mapper = new ModelMapper(); 
-		mapper.getConfiguration().setFieldMatchingEnabled(true).setFieldAccessLevel(AccessLevel.PRIVATE).setMatchingStrategy(MatchingStrategies.STRICT); 
+	protected LocalValidatorFactoryBean validator(MessageSource messageSource) {
+		LocalValidatorFactoryBean validatorFactoryBean = new LocalValidatorFactoryBean();
+		validatorFactoryBean.setValidationMessageSource(messageSource);
+		return validatorFactoryBean;
+	}
+
+	/**
+	 * Default {@code ModelMapper} bean that configures mapping between DTO and
+	 * entities.
+	 * <p>
+	 * field matching is enabled with private access and standard matching strategy.
+	 * 
+	 * @return an instance of {@code ModelMapper}
+	 */
+	@Bean
+	protected ModelMapper modelMapper() {
+		ModelMapper mapper = new ModelMapper();
+		mapper.getConfiguration().setFieldMatchingEnabled(true).setFieldAccessLevel(AccessLevel.PRIVATE)
+				.setMatchingStrategy(MatchingStrategies.STANDARD);
 		return mapper;
-    }
+	}
 }
