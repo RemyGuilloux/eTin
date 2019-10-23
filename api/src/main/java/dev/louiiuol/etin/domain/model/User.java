@@ -34,7 +34,7 @@ public class User{
     private String firstName;
 
     @Size(min=3, max = 50)
-    private String LastName;
+    private String lastName;
 
     @NaturalId
     @Size(min=3, max = 50)
@@ -91,11 +91,11 @@ public class User{
     }
 
     public String getLastName() {
-        return LastName;
+        return lastName;
     }
 
     public void setLastName(String lastName) {
-        LastName = lastName;
+        this.lastName = lastName;
     }
 
     public String getUserName() {
@@ -172,7 +172,7 @@ public class User{
 
     @Override
     public String toString() {
-        return "User [LastName=" + LastName + ", avatar=" + avatar + ", birthDate=" + birthDate + ", email=" + email
+        return "User [LastName=" + this.lastName + ", avatar=" + avatar + ", birthDate=" + birthDate + ", email=" + email
                 + ", firstName=" + firstName + ", id=" + id + ", password=" + password
                 + ", phone=" + phone + ", roles=" + roles + ", subscriptionDate=" + subscriptionDate + ", tinees="
                 + tinees + ", userName=" + userName + "]";
@@ -185,7 +185,7 @@ public class User{
             @NotBlank @Size(min = 6, max = 100) String password, Set<Role> roles) {
         this.id = id;
         this.firstName = firstName;
-        LastName = lastName;
+        this.lastName = lastName;
         this.userName = userName;
         this.email = email;
         this.phone = phone;
