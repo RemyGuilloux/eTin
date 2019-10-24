@@ -23,7 +23,7 @@ import dev.louiiuol.etin.domain.model.dtos.response.ResponseMessage;
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @RequestMapping("/auth")
-public class AuthController {
+public class UserController {
 
 	@Autowired
 	UserService service;

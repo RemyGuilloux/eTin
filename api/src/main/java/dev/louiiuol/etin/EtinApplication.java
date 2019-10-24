@@ -14,8 +14,6 @@ import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 /**
  * Main application class providing spring boot main method and configuration
  * elements.
- * <p>
- * 
  */
 @SpringBootApplication
 public class EtinApplication {

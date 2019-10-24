@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class AuthControllerTest {
 
     @Autowired
-    AuthController controller; 
+    UserController controller; 
 
     void should_Register_User(){
     }
