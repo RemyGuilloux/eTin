@@ -12,19 +12,6 @@ public class UserLoginDto {
     @Size(min = 6, max = 40)
     private String password;
 
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUsername(String userName) {
-        this.userName = userName;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
+    protected UserLoginDto() {}
+    
 }

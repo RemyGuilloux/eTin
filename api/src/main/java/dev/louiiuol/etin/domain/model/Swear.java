@@ -2,28 +2,24 @@ package dev.louiiuol.etin.domain.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 @Entity
-public class Swear {
+@Table(name = "swear")
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id; 
+public class Swear extends AbstractEntity{
 
-    @Column(nullable = false)
+    /**
+	 *
+	 */
+	private static final long serialVersionUID = -8560959912330250597L;
+
+	@Column(length=20, nullable = false)
     private String name; 
 
     @Column(nullable = false)
-    private Integer multiplier; 
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(nullable = false)
-    private Tinee tinee; 
+    private Integer multiplier;
+    
+    protected Swear() {}
     
 }

@@ -1,8 +1,5 @@
 package dev.louiiuol.etin.api.services.impl;
 
-import java.util.HashSet;
-import java.util.Set;
-
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -15,17 +12,13 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import dev.louiiuol.etin.api.repositories.RoleRepository;
 import dev.louiiuol.etin.api.repositories.UserRepository;
 import dev.louiiuol.etin.api.services.UserService;
-import dev.louiiuol.etin.domain.model.Role;
-import dev.louiiuol.etin.domain.model.Role.RoleName;
 import dev.louiiuol.etin.domain.model.User;
 import dev.louiiuol.etin.domain.model.dtos.request.UserLoginDto;
 import dev.louiiuol.etin.domain.model.dtos.request.UserRegisterDto;
 import dev.louiiuol.etin.domain.model.dtos.response.JwtResponse;
 import dev.louiiuol.etin.domain.model.dtos.response.ResponseMessage;
-import dev.louiiuol.etin.security.jwt.JwtProvider;
 
 /**
  * Default concrete implementation of {@code UserService}.
@@ -37,17 +30,11 @@ public class UserServiceImpl implements UserService {
     @Autowired
     AuthenticationManager authenticationManager;
 
-    @Autowired
-    JwtProvider jwtProvider;
-
 	@Autowired
 	PasswordEncoder encoder;
 
     @Autowired
 	UserRepository userRepository;
-
-	@Autowired
-    RoleRepository roleRepository;
     
     @Autowired
     ModelMapper mapper;
@@ -60,14 +47,8 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public ResponseEntity<JwtResponse> login(UserLoginDto input) {
-        Authentication authentication = authenticationManager.authenticate(
-			new UsernamePasswordAuthenticationToken(input.getUserName(), input.getPassword()));
-        SecurityContextHolder.getContext().setAuthentication(authentication);
-
-        String jwt = jwtProvider.generateJwtToken(authentication);
-        UserDetails userDetails = (UserDetails) authentication.getPrincipal();
-
-        return ResponseEntity.ok(new JwtResponse(jwt, userDetails.getUsername(), userDetails.getAuthorities()));
+       // TO DO Reimplement login authentification
+        return null;
     }
 
 	/**
@@ -83,36 +64,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public ResponseEntity<ResponseMessage> register(UserRegisterDto input) {
 
-        if (userRepository.existsByUserName(input.getUserName())) {
-			return new ResponseEntity<>(new ResponseMessage("Fail -> Username is already taken!"),
-					HttpStatus.BAD_REQUEST);
-		}
-
-		if (userRepository.existsByEmail(input.getEmail())) {
-			return new ResponseEntity<>(new ResponseMessage("Fail -> Email is already in use!"),
-					HttpStatus.BAD_REQUEST);
-		}
-
 		input.setPassword(encodePassword(input.getPassword()));
 		
         User user = mapper.map(input, User.class);
 		
-		Set<String> strRoles = input.getRole();
-		Set<Role> roles = new HashSet<>();
-
-		strRoles.forEach(role -> {
-			 if(role.equals("admin")) {
-				Role adminRole = roleRepository.findByName(RoleName.ROLE_ADMIN)
-						.orElseThrow(() -> new RuntimeException("Fail! -> Cause: User Role not find."));
-				roles.add(adminRole);
-			 }else {
-				Role userRole = roleRepository.findByName(RoleName.ROLE_USER)
-						.orElseThrow(() -> new RuntimeException("Fail! -> Cause: User Role not find."));
-				roles.add(userRole);
-			 }
-		});
-
-		user.setRoles(roles);
 		userRepository.save(user);
 
 		return new ResponseEntity<>(new ResponseMessage("User registered successfully!"), HttpStatus.CREATED);
@@ -126,8 +81,15 @@ public class UserServiceImpl implements UserService {
      */
 	private String encodePassword(String input) {
         String password = input;
-		String encoded = encoder.encode(password);
-		return encoded;
+		return encoder.encode(password);
+    }
+
+    public Boolean existsByEmail(String email) {
+        return  userRepository.existsByEmail(email);
+    }
+
+    public Boolean existsByUserName(String username) {
+        return  userRepository.existsByUserName(username);
     }
     
 }

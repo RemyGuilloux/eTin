@@ -35,6 +35,6 @@ public class TineeServiceImpl implements TineeService {
     public ResponseEntity<ResponseMessage> createTinee(TineeCreateDto input) {
         Tinee tinee = mapper.map(input, Tinee.class);
         repo.save(tinee);
-        return new ResponseEntity<>(new ResponseMessage("Tinee " + tinee.getTitle()+" was successfully created!"), HttpStatus.CREATED);
+        return new ResponseEntity<>(new ResponseMessage("Tinee was successfully created!"), HttpStatus.CREATED);
     }
 }

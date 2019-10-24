@@ -28,4 +28,7 @@ public interface UserService  {
      * @return a ResponseMessage encapsulated in a {@code ResponseEntity<>}.
      */
     public ResponseEntity<ResponseMessage> register(UserRegisterDto input);
+
+    public Boolean existsByEmail(String email);
+    public Boolean existsByUserName(String username);
 }
