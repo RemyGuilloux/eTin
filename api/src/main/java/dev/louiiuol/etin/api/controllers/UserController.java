@@ -15,6 +15,7 @@ import dev.louiiuol.etin.domain.models.dtos.requests.UserLoginDto;
 import dev.louiiuol.etin.domain.models.dtos.requests.UserRegisterDto;
 import dev.louiiuol.etin.domain.models.dtos.responses.JwtResponse;
 import dev.louiiuol.etin.domain.models.dtos.responses.ResponseMessage;
+import sun.text.normalizer.ICUBinary.Authenticate;
 
 /**
  * a {@code RestController} to handle {@code Authentication}.
@@ -35,7 +36,7 @@ public class UserController {
      * @return a JwtResponse encapsulated in a {@code ResponseEntity<>}.
      */
 	@PostMapping("/login")
-	public ResponseEntity<JwtResponse> logIn(@Valid @RequestBody UserLoginDto input) {
+	public ResponseEntity<JwtResponse> logIn(@Valid @RequestBody UserLoginDto input, Authenticate auth) {
 		return service.login(input);
 	}
 

@@ -23,6 +23,11 @@ public class UniqueEmailValidator implements ConstraintValidator<UniqueEmail, St
         this.service = service;
     }
 
+    /**
+     * Checks the unicity of the email based on the service returns
+     * @param email 
+     * @return boolean
+     */
     @Override
     public boolean isValid(String email, ConstraintValidatorContext context) {
         if (null == email || email.isEmpty()) { // Ignored

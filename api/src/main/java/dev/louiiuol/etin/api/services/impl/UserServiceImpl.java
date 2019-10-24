@@ -17,17 +17,25 @@ import dev.louiiuol.etin.domain.models.dtos.responses.ResponseMessage;
 
 /**
  * Default concrete implementation of {@code UserService}.
- * 
  */
 @Service
 public class UserServiceImpl implements UserService {
 
+    /**
+     * Inject {@code PasswordEncode} to encode User password
+     */
 	@Autowired
 	PasswordEncoder encoder;
 
+    /**
+     * Inject {@code UserRepository} to implement queries to database
+     */
     @Autowired
 	UserRepository userRepository;
     
+    /**
+     * Inject {@code ModalMapper} to map DTO into Entity and vice versa
+     */
     @Autowired
     ModelMapper mapper;
 
@@ -39,15 +47,15 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public ResponseEntity<JwtResponse> login(UserLoginDto input) {
-       // TO DO Reimplement login authentification
+       // TO DO Reimplement login authentification based on NEW JWT Impl
         return null;
     }
 
 	/**
-	 * Check params to see if: 
-	 * <ul>
-	 * <li>the username / email doesn't already exist </li>
-	 * <li>the role given exist </li>
+     * Try to register new user based on {@code UserCreateDto}
+	 * <li>Encode the given password
+     * <li>Map DTO into Entity {@code User}
+     * <li> Save in Repository
      * Then the method persists a {@code UserCreateDto}.
      *
      * @param credentials with {@code UserCreateDto} to persist.
@@ -55,31 +63,29 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public ResponseEntity<ResponseMessage> register(UserRegisterDto input) {
-
-		input.setPassword(encodePassword(input.getPassword()));
-		
+        String passwordEncoded = encoder.encode(input.getPassword());
+        input.setPassword(passwordEncoded);
         User user = mapper.map(input, User.class);
-		
 		userRepository.save(user);
-
-		return new ResponseEntity<>(new ResponseMessage("User registered successfully!"), HttpStatus.CREATED);
+        return new ResponseEntity<>(new ResponseMessage("Congratulation " + input.getUserName() + ", you successfully registered !"), HttpStatus.CREATED);
     }
 
-	/**
-     * Utilitary method to encode some password
-     *
-     * @param input with {@code UserLoginDto} to persist.
-     * @return a JwtResponse encapsulated in a {@code ResponseEntity<>}.
+    /**
+     * Return either the {@code email} is unique or not.
+     * 
+     * @param email the tested {@code email}
+     * @return {@code true} if {@code email} exists; {@code false} otherwise.
      */
-	private String encodePassword(String input) {
-        String password = input;
-		return encoder.encode(password);
-    }
-
     public boolean existsByEmail(String email) {
         return  userRepository.existsByEmail(email);
     }
 
+    /**
+     * Return either the {@code username} is unique or not.
+     * 
+     * @param username the tested {@code username}
+     * @return {@code true} if {@code username} exists; {@code false} otherwise.
+     */
     public boolean existsByUserName(String username) {
         return  userRepository.existsByUserName(username);
     }

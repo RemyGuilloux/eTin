@@ -15,6 +15,9 @@ public class EntityIdDto {
      */
     protected EntityIdDto() {}
 
+    /**
+     * Overriding method to return JSON naturally
+     */
     @Override
     public String toString() {
         return "{id=" + id + "}";

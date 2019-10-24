@@ -29,6 +29,20 @@ public interface UserService  {
      */
     public ResponseEntity<ResponseMessage> register(UserRegisterDto input);
 
+
+        /**
+     * Return either the {@code email} is unique or not.
+     * 
+     * @param email the tested {@code email}
+     * @return {@code true} if {@code email} exists; {@code false} otherwise.
+     */
     public boolean existsByEmail(String email);
+
+        /**
+     * Return either the {@code username} is unique or not.
+     * 
+     * @param username the tested {@code username}
+     * @return {@code true} if {@code username} exists; {@code false} otherwise.
+     */
     public boolean existsByUserName(String username);
 }

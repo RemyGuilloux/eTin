@@ -1,7 +1,5 @@
 package dev.louiiuol.etin.domain.models.dtos.requests;
 
-import java.time.LocalDateTime;
-
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
@@ -9,33 +7,46 @@ import javax.validation.constraints.Size;
 import dev.louiiuol.etin.api.controllers.validators.email.UniqueEmail;
 import dev.louiiuol.etin.api.controllers.validators.username.UniqueUsername;
 
+/**
+ * A DTO representing the {@code UserRegisterDto} to create new {@code User}
+ */
 public class UserRegisterDto {
 
+    /**
+     * The username of the given entity.
+     */
     @NotBlank
     @UniqueUsername
     @Size(min = 6, max = 50)
     private String userName;
 
+    /**
+     * The email of the given entity.
+     */
     @NotBlank
     @Size(max = 60)
     @UniqueEmail
     @Email
     private String email;
     
+    /**
+     * The password of the given entity.
+     */
     @NotBlank
     @Size(min = 6, max = 40)
     private String password;
-    
-    private final LocalDateTime subscriptionDate = LocalDateTime.now();
 
+    /**
+     * Default empty no-arg constructor
+     */
     protected UserRegisterDto() {}
 
-    public String getUserName() {
-        return userName;
-    }
-
-    public String getEmail() {
-        return email;
+    /**
+     * Overriding method to return JSON naturally
+     */
+    @Override
+    public String toString() {
+        return "{userName=" + userName + ",email=" + email + ", password=" + password +"}";
     }
 
     public String getPassword() {
@@ -46,8 +57,8 @@ public class UserRegisterDto {
         this.password = password;
     }
 
-    public LocalDateTime getSubscriptionDate() {
-        return subscriptionDate;
+    public String getUserName() {
+        return this.userName;
     }
     
 }

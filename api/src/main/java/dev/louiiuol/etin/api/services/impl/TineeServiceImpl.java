@@ -14,20 +14,24 @@ import dev.louiiuol.etin.domain.models.dtos.responses.ResponseMessage;
 
 /**
  * Default concrete implementation of {@code TineeService}.
- * 
  */
 @Service
 public class TineeServiceImpl implements TineeService {
 
+    /**
+     * Inject {@code ModelMapper} to map DTO into Entity and vice versa
+     */
     @Autowired
     ModelMapper mapper;
 
+    /**
+     * Inject {@code TineeRepository} to implement queries on databse
+     */
     @Autowired
     TineeRepository repo;
 
      /**
      * This method create a new Tinee based on {@code TineeCreateDto}.
-     *
      * @param input with {@code TineeCreateDto} to persist.
      * @return a ResponseMessage encapsulated in a {@code ResponseEntity<>}.
      */

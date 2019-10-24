@@ -6,7 +6,7 @@ import javax.validation.ConstraintValidatorContext;
 import dev.louiiuol.etin.api.services.UserService;
 
 /**
- * Validator for {@code UniqueEmail} constraint.
+ * Validator for {@code UniqueUsername} constraint.
  * 
  */
 public class UniqueUsernameValidator implements ConstraintValidator<UniqueUsername, String> {
@@ -14,15 +14,20 @@ public class UniqueUsernameValidator implements ConstraintValidator<UniqueUserna
     private final UserService service;
 
     /**
-     * Creates a {@code UniqueEmailValidator} with given injected
-     * {@code MemberService}.
+     * Creates a {@code UniqueUsernameValidator} with given injected
+     * {@code UserService}.
      *
-     * @param service an injected {@code MemberService}
+     * @param service an injected {@code UserService}
      */
     protected UniqueUsernameValidator(UserService service) {
         this.service = service;
     }
 
+    /**
+     * Checks the unicity of the username based on the service returns
+     * @param username 
+     * @return boolean
+     */
     @Override
     public boolean isValid(String username, ConstraintValidatorContext context) {
         if (null == username || username.isEmpty()) { // Ignored

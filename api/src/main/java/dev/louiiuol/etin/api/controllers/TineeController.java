@@ -15,7 +15,6 @@ import dev.louiiuol.etin.domain.models.dtos.responses.ResponseMessage;
 
 /**
  * a {@code RestController} to handle {@code Tinee}.
- *
  */
 @RestController
 @RequestMapping("/tinee")

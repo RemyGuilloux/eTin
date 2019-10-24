@@ -60,6 +60,11 @@ public class EtinApplication {
 		return mapper;
 	}
 
+	/**
+	 * Default {@code PasswordEncoder} bean that encode a given password
+	 * 
+	 * @return an instance of {@code PasswordEncoder}
+	 */
 	@Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
