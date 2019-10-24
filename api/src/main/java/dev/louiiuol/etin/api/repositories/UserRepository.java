@@ -5,7 +5,7 @@ import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import dev.louiiuol.etin.domain.model.User;
+import dev.louiiuol.etin.domain.models.User;
 
 
 /**
@@ -29,7 +29,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
      * @param username the tested {@code username}
      * @return {@code true} if {@code username} exists; {@code false} otherwise.
      */
-    Boolean existsByUserName(String userName);
+    boolean existsByUserName(String userName);
 
     /**
      * Return either the {@code email} is unique or not.
@@ -37,5 +37,5 @@ public interface UserRepository extends JpaRepository<User, Long> {
      * @param email the tested {@code email}
      * @return {@code true} if {@code email} exists; {@code false} otherwise.
      */
-    Boolean existsByEmail(String email);
+    boolean existsByEmail(String email);
 }

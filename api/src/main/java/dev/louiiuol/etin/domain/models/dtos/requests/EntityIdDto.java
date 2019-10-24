@@ -1,4 +1,4 @@
-package dev.louiiuol.etin.domain.model.dtos.request;
+package dev.louiiuol.etin.domain.models.dtos.requests;
 
 /**
  * A DTO representing the {@code id} of an entity.

@@ -1,4 +1,4 @@
-package dev.louiiuol.etin.domain.model;
+package dev.louiiuol.etin.domain.models;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

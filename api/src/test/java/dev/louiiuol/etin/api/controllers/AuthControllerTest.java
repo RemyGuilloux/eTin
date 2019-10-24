@@ -10,6 +10,6 @@ public class AuthControllerTest {
     @Autowired
     UserController controller; 
 
-    void should_Register_User(){
+    void shouldRegisterUser(){
     }
 }

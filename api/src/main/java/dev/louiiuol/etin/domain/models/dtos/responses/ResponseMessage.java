@@ -1,4 +1,4 @@
-package dev.louiiuol.etin.domain.model.dtos.response;
+package dev.louiiuol.etin.domain.models.dtos.responses;
 
 public class ResponseMessage {
 	private String message;

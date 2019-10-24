@@ -9,11 +9,11 @@ import org.springframework.stereotype.Service;
 
 import dev.louiiuol.etin.api.repositories.UserRepository;
 import dev.louiiuol.etin.api.services.UserService;
-import dev.louiiuol.etin.domain.model.User;
-import dev.louiiuol.etin.domain.model.dtos.request.UserLoginDto;
-import dev.louiiuol.etin.domain.model.dtos.request.UserRegisterDto;
-import dev.louiiuol.etin.domain.model.dtos.response.JwtResponse;
-import dev.louiiuol.etin.domain.model.dtos.response.ResponseMessage;
+import dev.louiiuol.etin.domain.models.User;
+import dev.louiiuol.etin.domain.models.dtos.requests.UserLoginDto;
+import dev.louiiuol.etin.domain.models.dtos.requests.UserRegisterDto;
+import dev.louiiuol.etin.domain.models.dtos.responses.JwtResponse;
+import dev.louiiuol.etin.domain.models.dtos.responses.ResponseMessage;
 
 /**
  * Default concrete implementation of {@code UserService}.
@@ -76,11 +76,11 @@ public class UserServiceImpl implements UserService {
 		return encoder.encode(password);
     }
 
-    public Boolean existsByEmail(String email) {
+    public boolean existsByEmail(String email) {
         return  userRepository.existsByEmail(email);
     }
 
-    public Boolean existsByUserName(String username) {
+    public boolean existsByUserName(String username) {
         return  userRepository.existsByUserName(username);
     }
     

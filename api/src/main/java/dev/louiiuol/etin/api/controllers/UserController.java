@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import dev.louiiuol.etin.api.services.UserService;
-import dev.louiiuol.etin.domain.model.dtos.request.UserLoginDto;
-import dev.louiiuol.etin.domain.model.dtos.request.UserRegisterDto;
-import dev.louiiuol.etin.domain.model.dtos.response.JwtResponse;
-import dev.louiiuol.etin.domain.model.dtos.response.ResponseMessage;
+import dev.louiiuol.etin.domain.models.dtos.requests.UserLoginDto;
+import dev.louiiuol.etin.domain.models.dtos.requests.UserRegisterDto;
+import dev.louiiuol.etin.domain.models.dtos.responses.JwtResponse;
+import dev.louiiuol.etin.domain.models.dtos.responses.ResponseMessage;
 
 /**
  * a {@code RestController} to handle {@code Authentication}.

@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import dev.louiiuol.etin.api.services.TineeService;
-import dev.louiiuol.etin.domain.model.dtos.request.TineeCreateDto;
-import dev.louiiuol.etin.domain.model.dtos.response.ResponseMessage;
+import dev.louiiuol.etin.domain.models.dtos.requests.TineeCreateDto;
+import dev.louiiuol.etin.domain.models.dtos.responses.ResponseMessage;
 
 /**
  * a {@code RestController} to handle {@code Tinee}.

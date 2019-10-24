@@ -2,10 +2,10 @@ package dev.louiiuol.etin.api.services;
 
 import org.springframework.http.ResponseEntity;
 
-import dev.louiiuol.etin.domain.model.dtos.request.UserLoginDto;
-import dev.louiiuol.etin.domain.model.dtos.request.UserRegisterDto;
-import dev.louiiuol.etin.domain.model.dtos.response.JwtResponse;
-import dev.louiiuol.etin.domain.model.dtos.response.ResponseMessage;
+import dev.louiiuol.etin.domain.models.dtos.requests.UserLoginDto;
+import dev.louiiuol.etin.domain.models.dtos.requests.UserRegisterDto;
+import dev.louiiuol.etin.domain.models.dtos.responses.JwtResponse;
+import dev.louiiuol.etin.domain.models.dtos.responses.ResponseMessage;
 
 /**
  * Service to handle {@code User} persistence.
@@ -29,6 +29,6 @@ public interface UserService  {
      */
     public ResponseEntity<ResponseMessage> register(UserRegisterDto input);
 
-    public Boolean existsByEmail(String email);
-    public Boolean existsByUserName(String username);
+    public boolean existsByEmail(String email);
+    public boolean existsByUserName(String username);
 }

@@ -8,9 +8,9 @@ import org.springframework.stereotype.Service;
 
 import dev.louiiuol.etin.api.repositories.TineeRepository;
 import dev.louiiuol.etin.api.services.TineeService;
-import dev.louiiuol.etin.domain.model.Tinee;
-import dev.louiiuol.etin.domain.model.dtos.request.TineeCreateDto;
-import dev.louiiuol.etin.domain.model.dtos.response.ResponseMessage;
+import dev.louiiuol.etin.domain.models.Tinee;
+import dev.louiiuol.etin.domain.models.dtos.requests.TineeCreateDto;
+import dev.louiiuol.etin.domain.models.dtos.responses.ResponseMessage;
 
 /**
  * Default concrete implementation of {@code TineeService}.

@@ -1,9 +1,10 @@
-package dev.louiiuol.etin.domain.model.dtos.request;
+package dev.louiiuol.etin.domain.models.dtos.requests;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
 public class UserLoginDto {
+    
     @NotBlank
     @Size(min=3, max = 60)
     private String userName;

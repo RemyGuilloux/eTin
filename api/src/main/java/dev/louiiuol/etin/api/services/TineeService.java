@@ -2,8 +2,8 @@ package dev.louiiuol.etin.api.services;
 
 import org.springframework.http.ResponseEntity;
 
-import dev.louiiuol.etin.domain.model.dtos.request.TineeCreateDto;
-import dev.louiiuol.etin.domain.model.dtos.response.ResponseMessage;
+import dev.louiiuol.etin.domain.models.dtos.requests.TineeCreateDto;
+import dev.louiiuol.etin.domain.models.dtos.responses.ResponseMessage;
 
 
 /**
