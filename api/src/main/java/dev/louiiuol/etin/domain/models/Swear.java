@@ -9,9 +9,6 @@ import javax.persistence.Table;
 
 public class Swear extends AbstractEntity{
 
-    /**
-	 *
-	 */
 	private static final long serialVersionUID = -8560959912330250597L;
 
 	@Column(length=20, nullable = false)

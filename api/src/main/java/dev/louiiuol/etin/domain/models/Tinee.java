@@ -16,9 +16,6 @@ import javax.persistence.Table;
 @Table(name="tinee")
 public class Tinee extends AbstractEntity {
 
-    /**
-     *
-     */
     private static final long serialVersionUID = 1336305530679958140L;
 
     @Column(length = 20, nullable = false)

@@ -4,6 +4,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -35,7 +36,7 @@ public class UserController {
      * @return a JwtResponse encapsulated in a {@code ResponseEntity<>}.
      */
 	@PostMapping("/login")
-	public ResponseEntity<JwtResponse> logIn(@Valid @RequestBody UserLoginDto input) {
+	public ResponseEntity<JwtResponse> logIn(@Valid @RequestBody UserLoginDto input, Authentication auth) {
 		return service.login(input);
 	}
 

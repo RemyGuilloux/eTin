@@ -10,5 +10,6 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 public class EtinApplicationTests {
   @Test
 	public void contextLoads() {
+		// SImply checks if the application context loads
 	}
 }

@@ -11,9 +11,6 @@ import javax.persistence.Table;
 @Table(name = "user")
 public class User extends AbstractEntity{
 
-    /**
-     *
-     */
     private static final long serialVersionUID = -9139538865891144579L;
 
     @Column(length = 20)
@@ -46,6 +43,6 @@ public class User extends AbstractEntity{
     /**
      * Default empty no-args constructor.
      */
-    public User() {}
+    protected User() {}
 
 }

@@ -11,8 +11,8 @@ import dev.louiiuol.etin.UnitTestConfig;
 
 public class EntityIdDtoTest extends UnitTestConfig{
 
-	private static final String jsonId = "{\"id\":1}";
-	private final EntityIdDto actualEntity = MAPPER.readValue(jsonId, EntityIdDto.class);
+	private static final String ID_JSON = "{\"id\":1}";
+	private final EntityIdDto actualEntity = MAPPER.readValue(ID_JSON, EntityIdDto.class);
 
 	protected EntityIdDtoTest() throws IOException {
 		// Empty constructor

@@ -5,6 +5,7 @@ import java.util.Set;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 /**
  * A DTO representing the {@code TineeCreateDto} to create new {@code Tinee}
@@ -20,12 +21,8 @@ public class TineeCreateDto {
     /**
      * The description of the given entity.
      */
+    @Size(max=140)
     private String description;
-
-    /**
-     * The starting date of the given entity.
-     */
-    private LocalDate startDate = LocalDate.now();
 
     /**
      * The end date of the given entity.

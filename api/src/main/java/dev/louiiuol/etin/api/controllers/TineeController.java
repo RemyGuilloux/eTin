@@ -4,6 +4,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,8 +31,9 @@ public class TineeController {
      * @param form with {@code TineeCreateDto} to persist.
      * @return a ResponseMessage encapsulated in a {@code ResponseEntity<>}.
      */
+
     @PostMapping()
-    // @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
+    @PreAuthorize("hasRole('USER') and hasRole('ADMIN')")
     public ResponseEntity<ResponseMessage> createTinee(@Valid @RequestBody TineeCreateDto input){
         return service.createTinee(input);
     }

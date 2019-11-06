@@ -6,9 +6,6 @@ import javax.persistence.Entity;
 @Entity
 public class Action extends AbstractEntity {
 
-    /**
-     *
-     */
     private static final long serialVersionUID = -924764706329055084L;
 
     @Column(length = 20, nullable = false)
