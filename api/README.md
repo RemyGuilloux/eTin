@@ -14,7 +14,9 @@
 * > *[PUT]**  "entities/{id} {@Json: entity} "  => _update given entity._
 * > *[DELETE]**  "entities/{id} {@Json: entity} "  => _Delete the  entity._
 
- *Authentification required_
+> All this  ressources are included in the followings Entities: User -  Action* - Tinee*- Swear*
+>
+> _*Authentification required_
 
 ## Specific Ressources
 
@@ -22,6 +24,7 @@
 
 * > *[GET]*  "Users/{id}/tinees"  => _returns user's tinees_
 * > *[GET]*  "Users/{id}/swears"  => _returns user's swears_
+<<<<<<< HEAD
 * > *[POST]*  "Users/login"  => _returns  user's credentials_
 
 ## Tinees
