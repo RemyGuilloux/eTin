@@ -1,0 +1,19 @@
+@import url('//fonts.googleapis.com/icon?family=Material+Icons');
+@import "etin-theme";
+@import 'animate';
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { width: 100%; height: 100%;position: relative; font-size: 14px;}
+body { font-family: Roboto, "Helvetica Neue", sans-serif; }
+main.container { padding: 5rem 2rem 5rem 2rem; background: rgb(250, 250, 250);  min-height: calc(100% -50px);}
+
+.spaced { padding: 1.25rem 2rem; }
+
+form#register-form, form#login-form {
+    width: 100%;
+    mat-form-field { width: 100%; margin-bottom: 1.25rem; }
+    footer {padding-top: .5rem; }
+}
+
+::-moz-selection { background: lightblue; color: white; }
+::selection { background: lightblue; color: white; }

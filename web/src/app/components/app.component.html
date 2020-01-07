@@ -1,0 +1,8 @@
+<app-navbar [loggedIn]='isLoggedIn()'></app-navbar>
+<main id="global-container"
+  fxLayout="column wrap"
+  fxLayoutAlign="center center"
+  class="container mat-typography">
+    <router-outlet></router-outlet>
+</main>
+<app-footer></app-footer>

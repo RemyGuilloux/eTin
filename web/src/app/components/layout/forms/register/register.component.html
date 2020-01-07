@@ -1,0 +1,91 @@
+<form id="register-form"
+    class="spaced"
+    [formGroup]="registerForm"
+    novalidate
+    (ngSubmit)="register(registerForm.value)">
+
+    <mat-form-field>
+        <mat-label>
+            <span [hidden]='username.valid'>What's your name ?</span>
+            <span [hidden]='username.invalid'>Username</span>
+        </mat-label>
+        <input formControlName="username"
+            matInput
+            maxlength="12"
+            placeholder="johnDoe1986"
+            required >
+        <mat-icon color="primary" *ngIf='username.valid && (username.dirty || username.touched) ' matSuffix >sentiment_very_satisfied</mat-icon>
+        <mat-icon color="warn" *ngIf='username.invalid && (username.dirty || username.touched) ' matSuffix >sentiment_very_dissatisfied</mat-icon>
+        <mat-error *ngFor="let validation of errorMessages.username">
+            <mat-error *ngIf="username.hasError(validation.type) && (username.dirty || username.touched)">{{validation.message}}</mat-error>
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>
+            <span [hidden]='email.valid'>How can we reach you ?</span>
+            <span [hidden]='email.invalid'>Email</span>
+        </mat-label>
+        <input formControlName="email"
+        matInput
+        placeholder="name@email.com"
+        email 
+        required >
+        <mat-icon color="primary" *ngIf='email.valid && email.touched' matSuffix >sentiment_very_satisfied</mat-icon>
+        <mat-icon color="warn" *ngIf='email.invalid && email.touched' matSuffix >sentiment_very_dissatisfied</mat-icon>
+          <mat-error *ngFor="let validation of errorMessages.email">
+            <mat-error *ngIf="email.hasError(validation.type) && (email.dirty || email.touched)">{{validation.message}}</mat-error>
+        </mat-error>
+    </mat-form-field>
+
+    <section formGroupName="passwordForm"
+        fxLayoutAlign="space-evenly center"
+        fxLayout="row"
+        fxLayout.lt-sm="column">
+
+        <mat-form-field>
+            <mat-label>Choose a password</mat-label>
+                <input formControlName="password"
+                    type="password"
+                    matInput 
+                    placeholder=" your password" 
+                    required>
+                <mat-icon color="primary" *ngIf='password.valid && password.touched' matSuffix >sentiment_very_satisfied</mat-icon>
+                <mat-icon color="warn" *ngIf='password.invalid && password.touched' matSuffix >sentiment_very_dissatisfied</mat-icon>
+                <mat-error *ngFor="let validation of errorMessages.password">
+                    <mat-error *ngIf="password.hasError(validation.type) && (password.dirty || password.touched)">{{validation.message}}</mat-error>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Please confirm your password</mat-label>
+                <input formControlName="confirm"
+                type="password"
+                matInput
+                placeholder="confirm your password"
+                [errorStateMatcher]="parentErrorStateMatcher"
+                required >
+                <mat-icon color="primary" *ngIf=" passwordForm.valid && confirm.touched" matSuffix >sentiment_very_satisfied</mat-icon>
+                <mat-icon color="warn" *ngIf="passwordForm.invalid && confirm.touched " matSuffix >sentiment_very_dissatisfied</mat-icon>
+                <mat-error *ngFor="let validation of errorMessages.confirm">
+                    <mat-error *ngIf="passwordForm.invalid && confirm.touched ">{{validation.message}}</mat-error>
+                </mat-error>
+        </mat-form-field>
+
+    </section>
+
+    <footer fxLayout="row" fxLayoutAlign="space-evenly center">
+        <mat-slide-toggle formControlName="agree" 
+        color="accent"
+        required >
+            Are you sure ?
+        </mat-slide-toggle>
+        <button type="submit"
+            mat-raised-button
+            [disabled]="registerForm.invalid || loading"
+            color="primary" >
+                Join us now
+        </button>
+    </footer>
+
+</form>

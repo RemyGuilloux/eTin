@@ -1,0 +1,26 @@
+<form id="login-form"
+    class="spaced"
+    [formGroup]="loginForm"
+    (submit)="login()" >
+    <mat-form-field appearance="legacy" color="primary">
+        <mat-label>👤 Who are you ?</mat-label>
+        <input matInput placeholder="johnDoe" formControlName="username">
+        <mat-error *ngFor="let validation of errorMessages.username">
+            <mat-error *ngIf="username.hasError(validation.type) && (username.dirty || username.touched)">{{validation.message}}</mat-error>
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>🔑 Proove it ! </mat-label>
+            <input type="password" matInput placeholder=" password" formControlName="password">
+            <mat-hint align="end"> At least one letter, and one number </mat-hint>
+            <mat-error *ngFor="let validation of errorMessages.password">
+                <mat-error *ngIf="password.hasError(validation.type) && (password.dirty || password.touched)">{{validation.message}}</mat-error>
+            </mat-error>
+    </mat-form-field>
+
+    <footer fxLayout="row" fxLayoutAlign="space-evenly center">
+        <button mat-raised-button [disabled]="loginForm.invalid" color="primary" > Stop swearing now </button>
+    </footer>
+
+</form>

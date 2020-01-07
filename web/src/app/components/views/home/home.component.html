@@ -1,0 +1,36 @@
+<h1 class="mat-display-4 is-primary">The first <i class="is-accent">electronic </i> Swear Tin ! </h1>
+
+<section id="sub-titles">
+  <h2 class="mat-display-1 is-accent">
+    <mat-icon twoTone>pan_tool</mat-icon>
+    Turn <b>those nasty</b> habits on opportunities to support actions you like
+  </h2>
+
+  <h2 class="mat-display-1 is-accent">
+    <mat-icon>emoji_nature</mat-icon>
+    Create peacefull and friendly environment around you
+  </h2>
+
+  <h2 class="mat-display-1 is-accent">
+    <mat-icon>accessibility_new</mat-icon>
+    Challenge yourself and the others to be aware
+  </h2>
+</section>
+
+<mat-card id="forms">
+  <mat-tab-group 
+    mat-stretch-tabs 
+    [color]=" 'accent' " 
+    [backgroundColor]=" 'primary' " 
+    dynamicHeight >
+
+    <mat-tab class="" label="Create your account">
+        <app-register class="spaced"></app-register>
+    </mat-tab>
+
+    <mat-tab class="spaced" label="login" isActive>
+        <app-login class="mat-elevation-z4"></app-login> 
+    </mat-tab>
+
+  </mat-tab-group>
+</mat-card>

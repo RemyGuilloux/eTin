@@ -1,0 +1,55 @@
+<mat-toolbar fxLayout="row" fxLayoutAlign="space-between center" >
+
+    <span class="toolbar-spacer" fxLayout="row" fxLayoutAlign="start center">
+
+        <img id ="logo" src="assets/img/logo.png" alt="eTin logo">
+
+        <button color='accent' mat-button>About</button>
+
+        <button color='accent' mat-button>Explore</button>
+
+    </span>
+
+    <button id="userMenu"
+        mat-button
+        *ngIf="loggedIn"
+        color='accent'
+        [matMenuTriggerFor]="userMenu" 
+        aria-label="user navigation menu">
+        <svg id="userIcon" viewBox="0 0 100 100">
+            <use xlink:href="assets/img/icons.svg#unknown"></use>
+        </svg>
+        <mat-icon>arrow_drop_down</mat-icon>
+    </button>
+
+</mat-toolbar>
+
+<mat-menu #userMenu="matMenu"
+    xPosition="before">
+    
+    <button mat-menu-item>
+        <mat-icon>dashboard</mat-icon>
+        <button color='primary' mat-button>Dashboard</button>
+    </button>
+
+    <button mat-menu-item disabled>
+        <mat-icon>perm_identity</mat-icon>
+        <button color='primary' mat-button>Profile</button>
+    </button>
+
+    <button mat-menu-item>
+        <mat-icon>help</mat-icon>
+        <button color='primary' mat-button>Help</button>
+    </button>
+
+    <button mat-menu-item>
+        <mat-icon>power</mat-icon>
+        <button mat-button
+            (click)="logout()" 
+            color='primary' >
+            Disconnect
+        </button>
+    </button>
+
+</mat-menu>
+
